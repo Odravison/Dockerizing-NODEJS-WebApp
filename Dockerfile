@@ -1,4 +1,4 @@
-FROM odravison/dockerizing-nodejs:1.0
+FROM odravison/ubuntu-node:1.0
 
 RUN sudo apt-get update -y
 RUN sudo apt-get install -y nodejs npm
