@@ -1,4 +1,4 @@
-FROM odravison/ubuntu-node:1.0
+FROM odravison/ubuntu-nodejs:1.0
 
 COPY . /docker-node
 RUN cd /docker-node
