@@ -11,4 +11,4 @@ RUN npm install --production
 
 EXPOSE 8080
 
-RUN node /Dockerizing-NODEJS-WebApp/app.js
+RUN node app.js
