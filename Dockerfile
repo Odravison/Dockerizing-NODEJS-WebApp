@@ -1,7 +1,11 @@
 FROM odravison/ubuntu-node:1.0
 
+COPY . /docker-node
+RUN cd /docker-node
+RUN sudo rm -rf node_modules
+
 RUN sudo apt-get update -y
-RUN sudo apt-get install -y nodejs npm
+RUN sudo apt-get install -y nodejs
 
 RUN npm install --production
 
