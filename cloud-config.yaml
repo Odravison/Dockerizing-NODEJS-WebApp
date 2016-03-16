@@ -1,0 +1,22 @@
+#cloud-config
+
+users:
+  - name: odravison
+    passwd: "$1$36SEyaxb$/JwxlamnMD6iaXE1bYqWO."
+    groups: 
+      - "docker"
+      - "sudo"
+    ssh-authorized-keys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEwmJv36NTMYWqJwpEmI1I2s2JkE5v5JteIdkuvYwyI3kw7W7O+qfvTe7iGn4SZx4TH83MpL2HgCcnw0wEFV4TSZuAgd2Y3lpPKmgNW8IORepR89ATiqGUpVRtqG3D6dEuQ2cLQ52lRorrMSMUALdhCDo4UzP54b9haSjQebIeVdvJlBoUPiJF/2IOy7xJnbIE2nTs8njJUqRhjTRmsxWSBR5zegwjzM2SwvU1ECdys4P1k9TTHThzFnjM6pJH66Wm02mDsTA2UESss3LWDvhA+YKxHIafo3yahwG2b9eKXAPloxnuCZ/e+JvoIk0NsWTVe6QJJ+BOtkXhgHjAyThp"
+
+
+coreos:
+  etcd2:
+    # generate a new token for each unique cluster from https://discovery.etcd.io/new?size=3
+    # specify the initial size of your cluster with ?size=X
+    discovery: https://discovery.etcd.io/8530fb0027eb386ca8064367c3fa0dc7
+  units:
+    - name: etcd2.service
+      command: start
+    - name: fleet.service
+      command: start
