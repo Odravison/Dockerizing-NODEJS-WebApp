@@ -1,14 +1,11 @@
-FROM odravison/ubuntu-nodejs:1.0
+FROM node
 
 COPY . /docker-node
 RUN cd /docker-node
-RUN sudo rm -rf node_modules
 
-RUN sudo apt-get update -y
-RUN sudo apt-get install -y nodejs
+RUN rm -rf node_modules
 
 RUN npm install --production
 
 EXPOSE 8080
-
-RUN node app.js
+CMD["node", "app.js"]
